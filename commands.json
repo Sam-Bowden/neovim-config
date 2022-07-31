@@ -1,0 +1,5 @@
+{
+	"_comment": "Some example command presets...",
+	"C1": "cargo run",
+	"C2": "cargo run --release"
+}

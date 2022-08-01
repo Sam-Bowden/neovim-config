@@ -16,5 +16,5 @@ if (file ~= nil) then
 		print("Failed to read commands.json, please make sure your formatting is valid: " .. commands_tbl)
 	end
 else
-		print("Failed to open commands.json")
+	print("Failed to open commands.json")
 end

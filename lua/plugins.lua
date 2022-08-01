@@ -2,8 +2,10 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	-- Nightfox colour scheme
-	use 'EdenEast/nightfox.nvim'
-	vim.cmd("colorscheme nightfox")
+	use {
+		'EdenEast/nightfox.nvim',
+		config = 'vim.cmd("colorscheme nightfox")'
+	}
 
 	-- LSP support
 	use { 'neoclide/coc.nvim', branch = 'release' }
@@ -12,11 +14,20 @@ return require('packer').startup(function()
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = {
-			'kyazdani42/nvim-web-devicons',
-		}
+			'kyazdani42/nvim-web-devicons'
+		},
+		config = function()
+			require('nvim-tree').setup()
+		end
 	}
-	require('nvim-tree').setup()
 
 	-- Floating terminal
-	use "numToStr/FTerm.nvim"
+	use {
+		"numToStr/FTerm.nvim",
+		config = function()
+			require('FTerm').setup({
+				cmd = '/usr/bin/fish'
+			})
+		end
+	}
 end)

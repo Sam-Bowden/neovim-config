@@ -10,14 +10,18 @@ return require('packer').startup(function()
 	-- LSP support
 	use { 'neoclide/coc.nvim', branch = 'release' }
 
-	-- Nvim-tree to manage filesystem
+	-- Neo-tree to manage filesystem
 	use {
-		'kyazdani42/nvim-tree.lua',
+		'nvim-neo-tree/neo-tree.nvim',
 		requires = {
-			'kyazdani42/nvim-web-devicons'
+			'kyazdani42/nvim-web-devicons',
+			'nvim-lua/plenary.nvim',
+			'MunifTanjim/nui.nvim',
 		},
 		config = function()
-			require('nvim-tree').setup()
+			require('neo-tree').setup({
+				close_if_last_window = true
+			})
 		end
 	}
 

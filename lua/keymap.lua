@@ -9,4 +9,4 @@ km.set('n', '<A-h>', '<CMD>lua require("FTerm").toggle()<CR>')
 km.set('t', '<A-h>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- Toggle neo-tree with Alt-t
-km.set('n', '<A-t>', '<CMD>NvimTreeToggle<CR>')
+km.set('n', '<A-t>', '<CMD>Neotree toggle<CR>')

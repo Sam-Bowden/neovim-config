@@ -20,7 +20,13 @@ return require('packer').startup(function()
 		},
 		config = function()
 			require('neo-tree').setup({
-				close_if_last_window = true
+				close_if_last_window = true,
+				filesystem = {
+					filtered_items = {
+						hide_gitignored = false,
+						hide_dotfiles = false,
+					}
+				}
 			})
 		end
 	}

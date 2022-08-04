@@ -11,4 +11,3 @@ I have designed this configuration for my own use case - it doesn't aim to be a 
 - [Floating terminal](https://github.com/numToStr/FTerm.nvim)
 - [COC LSP support](https://github.com/neoclide/coc.nvim)
 - Modifications to make Vim keybindings on the [Workman keyboard layout](https://workmanlayout.org/) more comfortable
-- 10 customisable terminal command presets bound to Alt + 0-9, configurable in "commands.json"

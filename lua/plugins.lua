@@ -28,6 +28,8 @@ return require('packer').startup(function()
 					}
 				}
 			})
+
+			vim.keymap.set('n', '<A-t>', '<CMD>Neotree toggle<CR>')
 		end
 	}
 
@@ -35,9 +37,15 @@ return require('packer').startup(function()
 	use {
 		"numToStr/FTerm.nvim",
 		config = function()
-			require('FTerm').setup({
-				cmd = '/usr/bin/fish'
-			})
-		end
+			local fterm = require('FTerm')
+
+			local term1 = fterm:new({cmd = "/bin/fish"})
+			vim.keymap.set('n', '<A-h>', function() term1:toggle() end)
+			vim.keymap.set('t', '<A-h>', function() term1:toggle() end)
+
+			local term2 = fterm:new({cmd = "/bin/fish"})
+			vim.keymap.set('n', '<A-s>', function() term2:toggle() end)
+			vim.keymap.set('t', '<A-s>', function() term2:toggle() end)
+	end
 	}
 end)

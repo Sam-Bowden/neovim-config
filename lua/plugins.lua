@@ -1,10 +1,19 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
+	use 'vala-lang/vala.vim'
+
 	-- Nightfox colour scheme
 	use {
 		'EdenEast/nightfox.nvim',
-		config = 'vim.cmd("colorscheme nightfox")'
+		config = function()
+			require('nightfox').setup({
+				options = {
+					transparent = true,
+				}
+			})
+			vim.cmd("colorscheme nightfox")
+		end
 	}
 
 	-- LSP support
@@ -39,11 +48,11 @@ return require('packer').startup(function()
 		config = function()
 			local fterm = require('FTerm')
 
-			local term1 = fterm:new({cmd = "/bin/fish"})
-			vim.keymap.set('n', '<A-h>', function() term1:toggle() end)
-			vim.keymap.set('t', '<A-h>', function() term1:toggle() end)
+			local term1 = fterm:new({cmd = "/usr/bin/zsh"})
+			vim.keymap.set('n', '<A-e>', function() term1:toggle() end)
+			vim.keymap.set('t', '<A-e>', function() term1:toggle() end)
 
-			local term2 = fterm:new({cmd = "/bin/fish"})
+			local term2 = fterm:new({cmd = "/usr/bin/zsh"})
 			vim.keymap.set('n', '<A-s>', function() term2:toggle() end)
 			vim.keymap.set('t', '<A-s>', function() term2:toggle() end)
 	end
